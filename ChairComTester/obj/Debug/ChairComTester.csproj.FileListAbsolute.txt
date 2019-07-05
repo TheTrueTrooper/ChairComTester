@@ -1,0 +1,6 @@
+c:\users\angelo\documents\visual studio 2015\Projects\ChairComTester\ChairComTester\bin\Debug\ChairComTester.exe.config
+c:\users\angelo\documents\visual studio 2015\Projects\ChairComTester\ChairComTester\bin\Debug\ChairComTester.exe
+c:\users\angelo\documents\visual studio 2015\Projects\ChairComTester\ChairComTester\bin\Debug\ChairComTester.pdb
+c:\users\angelo\documents\visual studio 2015\Projects\ChairComTester\ChairComTester\obj\Debug\ChairComTester.csprojResolveAssemblyReference.cache
+c:\users\angelo\documents\visual studio 2015\Projects\ChairComTester\ChairComTester\obj\Debug\ChairComTester.exe
+c:\users\angelo\documents\visual studio 2015\Projects\ChairComTester\ChairComTester\obj\Debug\ChairComTester.pdb
