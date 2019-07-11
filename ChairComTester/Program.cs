@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.IO.Ports;
 
 namespace ChairComTester
 {
@@ -15,9 +16,22 @@ namespace ChairComTester
         //const int Min = 20;
         static void Main(string[] args)
         {
+            string[] Ports = SerialPort.GetPortNames();
+            Console.WriteLine("Avalible Ports:");
+            foreach (string Port in Ports)
+                Console.WriteLine(Port);
+            int PortSelect = 0;
+            bool success = false;
+            do
+            {
+                Console.WriteLine("Please Select a valid port.");
+                success = int.TryParse(Console.ReadLine(), out PortSelect);
+            }
+            while (!(success && PortSelect <= Ports.Count() && PortSelect > 0));
+             
             JMDM_PortControl ChairPort = new JMDM_PortControl();
             Console.WriteLine("Hello to angelo's Chair Test program.\nPlease use the arrow keys.\nPress up to put chair up.\nPress down to put chair down.\nPress right to put the chair on a right tilt.\nPress left to put the chair on a left tilt.\nAdditionaly, Press R to reset and E to exit.");
-            ChairPort.Open_Port("COM10");
+            ChairPort.Open_Port(SerialPort.GetPortNames()[PortSelect]);
             ChairPort.Reset_Zerp();
             Thread.Sleep(2000);
             ConsoleKey Key = Console.ReadKey().Key;
@@ -89,11 +103,15 @@ namespace ChairComTester
                 ChairPort.Send_Data(1, Max);
                 ChairPort.Send_Data(2, Max);
                 ChairPort.Send_Data(3, Max);
+                ChairPort.Send_Data(4, Max);
+                ChairPort.Send_Data(5, Max);
                 Thread.Sleep(timing);
                 ChairPort.Send_Data(0, Max);
                 ChairPort.Send_Data(1, Min);
                 ChairPort.Send_Data(2, Min);
                 ChairPort.Send_Data(3, Min);
+                ChairPort.Send_Data(4, Min);
+                ChairPort.Send_Data(5, Min);
                 Thread.Sleep(timing);
             }
 
